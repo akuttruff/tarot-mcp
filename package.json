@@ -1,0 +1,21 @@
+{
+  "name": "tarot-mcp",
+  "version": "0.1.0",
+  "description": "Tarot readings for a local model: an MCP server that draws from the Rider-Waite-Smith deck.",
+  "type": "module",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "tsc && node --test dist/*.test.js",
+    "fetch-deck": "node scripts/fetch-deck.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "typescript": "^6.0.2"
+  }
+}
