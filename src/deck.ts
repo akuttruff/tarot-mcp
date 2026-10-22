@@ -148,7 +148,7 @@ export interface Spread {
 
 export const SPREADS: Spread[] = [
   { id: "single", name: "One card", description: "One card for one question, or for the day.", positions: [{ name: "The card", meaning: "The heart of the matter, or the day's theme." }] },
-  { id: "three", name: "Past, present, future", description: "Three cards in a row: where this came from, where it stands, where it is heading.", positions: [{ name: "Past", meaning: "What led here." }, { name: "Present", meaning: "Where things stand now." }, { name: "Future", meaning: "Where this is heading if nothing changes." }] },
+  { id: "three", name: "Past, present, future", description: "Three cards in a row: where this came from, where it stands, where it is heading.", positions: [{ name: "Past", meaning: "What led here." }, { name: "Present", meaning: "Where things stand now." }, { name: "Future", meaning: "What is opening up, as things stand: what wants attention next, not what will happen." }] },
   { id: "situation", name: "Situation, obstacle, advice", description: "Three cards: what is going on, what stands in the way, and what to do.", positions: [{ name: "Situation", meaning: "What is really going on." }, { name: "Obstacle", meaning: "What stands in the way." }, { name: "Advice", meaning: "What to do about it." }] },
   { id: "celtic-cross", name: "Celtic Cross", description: "Ten cards: the classic spread for a question with many sides.", positions: [
     { name: "The present", meaning: "The heart of the matter: where you are." },
@@ -156,11 +156,11 @@ export const SPREADS: Spread[] = [
     { name: "The foundation", meaning: "What lies beneath: the root of the situation." },
     { name: "The recent past", meaning: "What is passing out of the picture." },
     { name: "The crown", meaning: "What is possible, or what you are aiming at." },
-    { name: "The near future", meaning: "What is coming next." },
+    { name: "The near future", meaning: "What is coming into view, as things stand." },
     { name: "You", meaning: "How you see yourself in this." },
     { name: "Surroundings", meaning: "The people and circumstances around you." },
-    { name: "Hopes and fears", meaning: "What you hope for, and what you dread, often the same thing." },
-    { name: "Outcome", meaning: "Where this leads if the course holds." },
+    { name: "Hopes and fears", meaning: "What you hope for, and what you dread, often the same thing; both are allowed." },
+    { name: "Outcome", meaning: "What this is growing toward if the course holds: a direction to weigh, not a prediction." },
   ] },
 ];
 

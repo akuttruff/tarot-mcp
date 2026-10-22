@@ -32,6 +32,8 @@ describe("drawing", () => {
     assert.equal(r.cards.length, 10);
     assert.equal(new Set(r.cards.map((c) => c.card.id)).size, 10);
     assert.equal(r.question, "Should I move?");
+    assert.match(r.guidance, /trauma-informed and expansive/);
+    assert.match(r.guidance, /Do not predict the future/);
     assert.deepEqual(r.cards.map((c) => c.position.name), SPREADS.find((s) => s.id === "celtic-cross")!.positions.map((p) => p.name));
     for (const c of r.cards) {
       const card = BY_ID.get(c.card.id)!;
@@ -45,6 +47,7 @@ describe("drawing", () => {
     const a = draw({ spread: "three", seed: 12345 });
     const b = draw({ spread: "three", seed: 12345 });
     assert.deepEqual(a.cards, b.cards);
+    assert.equal(a.guidance, b.guidance);
     assert.notDeepEqual(draw({ spread: "three", seed: 54321 }).cards.map((c) => c.card.id), a.cards.map((c) => c.card.id));
     for (let seed = 1; seed < 20; seed++) assert.equal(draw({ spread: 5, reversals: false, seed }).summary.reversed, 0);
   });

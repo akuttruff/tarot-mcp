@@ -30,6 +30,8 @@ describe("tools, over the MCP protocol", () => {
     const card = JSON.parse(textOf(await client.callTool({ name: "card_meaning", arguments: { card: "the star" } })));
     assert.equal(card.id, "major-17");
     assert.match(card.imagery, /kneels by a pool/);
+    assert.match(card.guidance, /never says what will happen/);
+    assert.match(reading.guidance, /never says what will happen/);
 
     const bad = (await client.callTool({ name: "card_meaning", arguments: { card: "the moon landing" } })) as TextResult;
     assert.equal(bad.isError, true);

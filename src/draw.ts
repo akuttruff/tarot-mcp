@@ -22,8 +22,21 @@ export interface DrawnCard {
   image: string;
 }
 
+/**
+ * How a reading is to be given, sent with every draw so that whatever model
+ * reads the cards reads them this way: trauma-informed, expansive, and
+ * never a prediction.
+ */
+export const GUIDANCE =
+  "Read these cards trauma-informed and expansive. Name what a card may hold without judgement, assume the person's responses have made sense, " +
+  "and lead with safety, choice and agency: offer what could be true and what they might do with it, never a diagnosis or a verdict on them. " +
+  "Do not predict the future. A position about what is ahead describes what is opening up, what wants attention or what the person could move toward as things stand; " +
+  "it never says what will happen. A reversal is a shading of the card, not its opposite and not a bad omen. Stay with the question asked and the person's own words.";
+
 export interface Reading {
-  spread: { id: string; name: string; description: string };
+  spread: { id: string; name: string; description: string }
+  /** How to read what follows; the same words every time. */
+  guidance: string;
   question: string | null;
   drawnAt: string;
   seed: number;
@@ -90,6 +103,7 @@ export function draw(options: DrawOptions = {}): Reading {
   for (const c of cards) if (c.card.suit) suits[c.card.suit] = (suits[c.card.suit] ?? 0) + 1;
   return {
     spread: { id: spread.id, name: spread.name, description: spread.description },
+    guidance: GUIDANCE,
     question: options.question?.trim() || null,
     drawnAt: new Date().toISOString(),
     seed,

@@ -17,9 +17,12 @@ to give.
   upright and reversed, and what is in the picture.
 - `list_spreads` names the spreads and what each position asks.
 
-The tool descriptions tell the model to read the cards together, in the
-light of the question and the positions, and to treat a reversal as a
-shading of the card rather than its opposite.
+The tool descriptions, and a `guidance` field in every result, tell the
+model how to read: the cards together, in the light of the question and the
+positions; trauma-informed and expansive, leading with safety, choice and
+agency; a reversal as a shading of the card rather than its opposite; and
+never as a prediction. A position about what is ahead describes what is
+opening up or wants attention, not what will happen.
 
 ## The pictures
 

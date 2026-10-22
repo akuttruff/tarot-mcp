@@ -6,7 +6,7 @@ import { existsSync, readFileSync, realpathSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { CARDS, SPREADS, SUIT_ELEMENT, findCard } from "./deck.js";
-import { DrawError, draw } from "./draw.js";
+import { DrawError, GUIDANCE, draw } from "./draw.js";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 /** The card pictures: deck/ beside src/ and dist/. */
@@ -20,6 +20,8 @@ const TOOLS = [
       "the card dealt there, whether it is reversed, its keywords and its meaning that way up, and where its picture is. " +
       "Read the cards together, in the light of the question and of each position, rather than listing keywords: say what the " +
       "spread as a whole suggests, name the cards and positions as you go, and treat a reversal as a shading of the card, not its opposite. " +
+      "Read trauma-informed and expansive, leading with safety, choice and agency, and never predict the future: a position about what is ahead " +
+      "describes what is opening up or wants attention, not what will happen. The result carries this guidance in full; follow it. " +
       "Spreads: single (one card), three (past, present, future), situation (situation, obstacle, advice), celtic-cross (ten cards), " +
       "or a number from 1 to 21 for a plain row. Draw once per question; use the seed to deal the same reading again.",
     inputSchema: {
@@ -76,7 +78,7 @@ export function createServer(deckDir = DECK_DIR): Server {
         case "card_meaning": {
           const card = findCard(String(args.card ?? ""));
           if (!card) return failure(`No card called "${String(args.card ?? "")}". Try a name like "The Star" or "seven of pentacles".`);
-          return text({ ...card, element: card.suit ? SUIT_ELEMENT[card.suit] : null, image: `tarot://card/${card.id}` });
+          return text({ ...card, element: card.suit ? SUIT_ELEMENT[card.suit] : null, image: `tarot://card/${card.id}`, guidance: GUIDANCE });
         }
         case "list_spreads":
           return text(SPREADS);
