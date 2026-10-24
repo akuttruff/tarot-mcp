@@ -1,5 +1,7 @@
 # tarot-mcp
 
+<img src="docs/images/majors.jpg" alt="The Fool, the Magician, the High Priestess, the Star, the Moon, the Sun and the World from the 1909 Rider-Waite-Smith deck" />
+
 Tarot readings for a local model: a small MCP server that LM Studio (or any
 MCP host) launches over stdio. It shuffles the Rider-Waite-Smith deck, deals
 a spread, and hands the model each card with its position, its orientation,
@@ -35,6 +37,22 @@ Commons, and the copies in `deck/` are those scans at 300 pixels wide.
 
 [LM Chat](https://github.com/akuttruff/lm-chat) draws a `draw_cards` result
 as its spread, the cards laid as they fell, from its own copy of the deck.
+
+## In use
+
+In [LM Chat](https://github.com/akuttruff/lm-chat), a `draw_cards` result is
+laid out as its spread, each card under its position, and the model's
+reading follows:
+
+<img src="docs/images/tarot-desktop.png" alt="LM Chat on a desktop: a three-card draw for a question about a new job, the Three of Wands, the Emperor and the Star under past, present and future" />
+
+<table>
+  <tr>
+    <td align="center" valign="top" width="33%"><img src="docs/images/tarot-phone.png" width="220" alt="The same draw on a phone, with the reading under the cards" /><br /><sub>The same draw on a phone, with the reading under it.</sub></td>
+    <td align="center" valign="top" width="33%"><img src="docs/images/orrery-spread.png" width="220" alt="Orrery: a past, present and future spread with its reading" /><br /><sub>In <a href="https://github.com/akuttruff/orrery">Orrery</a>, a spread cast from the home screen.</sub></td>
+    <td align="center" valign="top" width="33%"><img src="docs/images/orrery-card.png" width="220" alt="Orrery: a single card of the day with its reading" /><br /><sub>A daily card in Orrery.</sub></td>
+  </tr>
+</table>
 
 ## Setup
 
