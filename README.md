@@ -16,7 +16,7 @@ to give.
   Reversals are on unless turned off. The result carries a `seed`, and the
   same seed deals the same reading again.
 - `card_meaning` looks one card up by name or id: keywords and meaning
-  upright and reversed, and what is in the picture.
+  upright and reversed.
 - `list_spreads` names the spreads and what each position asks.
 
 The tool descriptions, and a `guidance` field in every result, tell the

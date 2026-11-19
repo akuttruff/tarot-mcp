@@ -4,13 +4,13 @@ import { BY_ID, CARDS, SPREADS, findCard } from "./deck.js";
 import { draw, spreadFor } from "./draw.js";
 
 describe("the deck", () => {
-  it("has 78 distinct cards with both meanings and a picture each", () => {
+  it("has 78 distinct cards with both meanings each", () => {
     assert.equal(CARDS.length, 78);
     assert.equal(new Set(CARDS.map((c) => c.id)).size, 78);
     assert.equal(CARDS.filter((c) => c.arcana === "major").length, 22);
     for (const c of CARDS) {
       assert.ok(c.upright.keywords.length >= 3 && c.reversed.keywords.length >= 3, c.id);
-      assert.ok(c.upright.meaning.length > 40 && c.reversed.meaning.length > 40 && c.imagery.length > 20, c.id);
+      assert.ok(c.upright.meaning.length > 40 && c.reversed.meaning.length > 40, c.id);
     }
   });
 

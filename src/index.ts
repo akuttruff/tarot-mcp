@@ -39,7 +39,7 @@ const TOOLS = [
     name: "card_meaning",
     description:
       "Look up one card of the Rider-Waite-Smith deck by name (\"The Tower\", \"queen of cups\", \"3 of swords\") or id: its keywords and " +
-      "meaning upright and reversed, and what is in Pamela Colman Smith's picture. For a card already dealt, the draw's own text is usually enough.",
+      "meaning upright and reversed. For a card already dealt, the draw's own text is usually enough.",
     inputSchema: {
       type: "object" as const,
       properties: { card: { type: "string", description: "The card's name or id." } },
@@ -93,7 +93,7 @@ export function createServer(deckDir = DECK_DIR): Server {
 
   // Each card's picture, as a resource: tarot://card/<id>.
   server.setRequestHandler(ListResourcesRequestSchema, async () => ({
-    resources: CARDS.map((c) => ({ uri: `tarot://card/${c.id}`, name: c.name, mimeType: "image/jpeg", description: c.imagery })),
+    resources: CARDS.map((c) => ({ uri: `tarot://card/${c.id}`, name: c.name, mimeType: "image/jpeg" })),
   }));
   server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
     const m = /^tarot:\/\/card\/([a-z]+-\d{2})$/.exec(request.params.uri);
